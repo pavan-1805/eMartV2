@@ -9,7 +9,7 @@ function Home() {
     const classes = useStyles()
     return (
         <Typography className={classes.text}>
-            HII PAVAN
+            HII
         </Typography>
     )
 }
