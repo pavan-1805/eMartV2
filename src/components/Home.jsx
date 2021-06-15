@@ -12,8 +12,7 @@ const useStyles = makeStyles((theme)=>({
         fontSize: '7rem',
         display : "flex",
         justifyContent : "center",
-       marginLeft : 40
-        
+       marginLeft : 40        
     },
     container: {
         marginTop : 60,

@@ -9,8 +9,7 @@ import axios from 'axios'
 const useStyles = makeStyles((theme)=>({
     GridItem : {
         marginTop : 50,
-        marginBottom : 30,
-        
+        marginBottom : 30,        
     },
     title:{
         color : "#000000",   

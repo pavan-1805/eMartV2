@@ -78,5 +78,4 @@ function UserDetail() {
             </Container>
     )
 }
-
 export default UserDetail

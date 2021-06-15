@@ -6,6 +6,7 @@ function App() {
   return (
     <MartContextProvider>
       <div className="main">
+        
               <div className="main-second">
                 <Header/>                        
               </div>          

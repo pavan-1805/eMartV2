@@ -54,7 +54,7 @@ function Login(props) {
         const Data = JSON.stringify(response.profileObj)
         localStorage.setItem("userData",Data)
         setUserLoginStatus(true)    
-        dispatch({type:"USER-DATA",payload : {USERDATA}})  
+        dispatch({type:"USER-DATA",payload : {USERDATA}})
         
         
     }
