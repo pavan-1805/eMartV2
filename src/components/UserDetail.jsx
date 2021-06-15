@@ -1,6 +1,7 @@
 import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Container, Grid, makeStyles, Typography } from '@material-ui/core'
-import React, { useState } from 'react'
+import React, { useState,useContext } from 'react'
 import {Link} from 'react-router-dom'
+import { MartContext } from '../context/MartContextProvider'
 
 const useStyles = makeStyles((theme)=>({
     grid : {
@@ -30,8 +31,10 @@ const useStyles = makeStyles((theme)=>({
 }))
 function UserDetail() { 
     const classes = useStyles()
+    const {state,dispatch} = useContext(MartContext)
     const UserData = JSON.parse(localStorage.getItem("userData")) 
-    console.log(UserData);  
+    console.log(state); 
+    console.log("pavan",state.UserData[0].UserfirstName);
     
     return (        
         <Container className={classes.container}>
@@ -49,19 +52,19 @@ function UserDetail() {
                   <CardMedia
                     className = {classes.media}
                     component="img"                               
-                    image={UserData.imageUrl}
+                    image= {state.UserData[0].UserImageUrl}
                     title={UserData.givenName}
                   />
 
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
-                      First Name : {UserData.givenName}
+                      First Name : {state.UserData[0].UserfirstName}                      
                     </Typography>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Middle Name : {UserData.familyName}
+                      Middle Name : {state.UserData[0].UserMiddleName}
                     </Typography>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Email : {UserData.email}
+                      Email : {state.UserData[0].UserEmail}
                     </Typography>
                   </CardContent>
                 </CardActionArea>

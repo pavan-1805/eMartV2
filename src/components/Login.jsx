@@ -1,6 +1,7 @@
-import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Container, Grid, makeStyles, Typography } from '@material-ui/core'
-import React, { useState } from 'react'
-import { Link, Redirect } from 'react-router-dom'
+import {  Container, makeStyles } from '@material-ui/core'
+import React, { useState, useContext } from 'react'
+import { Redirect } from 'react-router-dom'
+import { MartContext } from '../context/MartContextProvider';
 import GoogleLogin from 'react-google-login'
 
 const useStyles = makeStyles((theme)=>({
@@ -27,6 +28,8 @@ const useStyles = makeStyles((theme)=>({
     
 }))
 function Login(props) {
+    const {state,dispatch} = useContext(MartContext)
+    // console.log("state,",state.UserData[0]);
     const classes = useStyles()
     const [userData, setUserData] = useState(null)
     const [userLoginStatus, setUserLoginStatus] = useState(false)
@@ -35,6 +38,14 @@ function Login(props) {
     const [email, setEmail] = useState("")
     const [imageUrl, setImageUrl] = useState("")
     const responseGoogle = (response) => {
+        const USERDATA = {
+            userInfo : response.profileObj,
+            firstName : response.profileObj.givenName,
+            middleName :response.profileObj.familyName,
+            email : response.profileObj.email,
+            imageUrl : response.profileObj.imageUrl
+
+        }
         setUserData(response.profileObj)
         setFirstName(response.profileObj.givenName)
         setMiddleName(response.profileObj.familyName)
@@ -42,7 +53,9 @@ function Login(props) {
         setImageUrl(response.profileObj.imageUrl)
         const Data = JSON.stringify(response.profileObj)
         localStorage.setItem("userData",Data)
-        setUserLoginStatus(true)      
+        setUserLoginStatus(true)    
+        dispatch({type:"USER-DATA",payload : {USERDATA}})  
+        // console.log("pp",state.UserData[0]);
         
     }
     props.sendData(userLoginStatus)

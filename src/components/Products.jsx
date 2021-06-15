@@ -5,7 +5,6 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { MartContext } from '../context/MartContextProvider';
 import ProductCard from './ProductCard';
 import axios from 'axios'
-import Pagination from '@material-ui/lab/Pagination'
 
 
 const useStyles = makeStyles((theme)=>({
@@ -35,34 +34,33 @@ const useStyles = makeStyles((theme)=>({
     
 
 }))
-let val = 0;
 function Products() {
     const classes = useStyles()
-    const {state} = useContext(MartContext)
+    const {state,dispatch} = useContext(MartContext)
     const [productCount, setProductCount] = useState(0)
     const [products, setProducts] = useState([])
-    console.log(state);
+    console.log(state.ProductCount);
     useEffect(() => {
         setProducts(state.products)        
     }, [])
     const getCount = (count) => {
         if(count && count>0){ 
-            val = val+1;
-            setProductCount(val)
+            console.log("papapa");
+            dispatch({type:"INCREMENT", payload : {val : 1 }})
         } 
     }
     const clickHandler =  () => {
-        alert("data got")
-        axios.post('',{
-            // UserName : ,
-            ProductsCount : val
-        })
-        .then(response=>{
-            console.log(response);
-        })
-        .catch(error => {
-            console.log(error);
-        })
+        //alert("data got")
+        // axios.post('',{
+        //     // UserName : ,
+        //     ProductsCount : val
+        // })
+        // .then(response=>{
+        //     console.log(response);
+        // })
+        // .catch(error => {
+        //     console.log(error);
+        // })
 
     }
     
@@ -80,18 +78,18 @@ function Products() {
                 onClick={()=>clickHandler()}
                 
             >
-                {productCount} Item
+                {state.ProductCount} Item
             </Button>
             </div>            
         </Container>
         <Container >
             <Grid container>
                 {
-                    products.map(product => {
+                    products.map(prod => {
                         return (
-                            <Grid item key={product.albumId} xs={12} md={6} lg={4} className={classes.GridItem}>
+                            <Grid item key={prod.albumId} xs={12} md={6} lg={4} className={classes.GridItem}>
                                 
-                               <ProductCard product={product} sendCount={getCount}/>
+                               <ProductCard product={prod} sendCount={getCount}/>
                             </Grid>
                         )
                     })
@@ -101,7 +99,7 @@ function Products() {
             </Grid>
             
         </Container>
-        <Pagination count={10} color="primary" />
+        
                     
         </>
     )

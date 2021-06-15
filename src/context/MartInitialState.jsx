@@ -127,18 +127,16 @@ export const initialState = {
 
           }
     ],
-    LoginStatus : [
-        {isLoggedIn : false,}
-    ],
-    UserData : [
-        {UserData : null,
-        UserfirstName : "",
-        UserMiddleName : "",
-        UserEmail : "",
-        UserImageUrl : ""}
+    
+    UserData : 
+        {
+          UserData : null,
+          UserfirstName : "",
+          UserMiddleName : "",
+          UserEmail : "",
+          UserImageUrl : ""
+      },
 
-    ],
-    ProductCount : [
-        {ProductCount : 0}
-    ]
+    
+    ProductCount : 0
 }

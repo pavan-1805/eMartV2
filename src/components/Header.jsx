@@ -10,7 +10,6 @@ import Login from './Login';
 import Home from './Home' 
 import Products from './Products';
 import UserDetail from './UserDetail';
-
 import { MartContext } from '../context/MartContextProvider';
 
 
@@ -36,11 +35,7 @@ const useStyles = makeStyles((theme) => ({
 },
 button:{
     marginRight:20
-},
-// appBar : {
-//   display : "flex",
-//   flexWrap : "wrap"
-// }
+}
   
 }));
 
@@ -49,16 +44,12 @@ export default function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [userName, setUserName] = useState("")
   const [userData, setUserData] = useState(null)
-
-  const {state,dispatch} = useContext(MartContext)
-  
-  // console.log("state",state);
-  // console.log("dispatch",dispatch);
   const getData = (userLoginStatus) => {
     const temp = localStorage.getItem("userData")
     const Data = JSON.parse(temp)
     if(userLoginStatus){
-      setIsLoggedIn(true)      
+      setIsLoggedIn(true) 
+      //state.LoginStatus[0].isLoggedIn= true;     
       setUserName(Data.name)      
     }  
     
@@ -68,8 +59,11 @@ export default function Header() {
   },[localStorage.length])
 
   const Logout = () => {
-    setIsLoggedIn(false)    
+    setIsLoggedIn(false)  
+    //state.LoginStatus[0].isLoggedIn= false;  
+    // console.log( state.LoginStatus[0].isLoggedIn);
     localStorage.clear()  
+    return <Redirect to="/" />
   }
 
   return (
@@ -99,7 +93,7 @@ export default function Header() {
                     e-MART
                 </Typography>
                 {
-                  isLoggedIn === false  && localStorage.length === 0 ?
+                  isLoggedIn === false  || localStorage.length === 0 ?
                   <Button xs={12} md={6} lg={4}
                   variant = "outlined"
                   color = "inherit"  
@@ -141,8 +135,8 @@ export default function Header() {
           <Link to="/home" ></Link>
         </div>
         <Switch>
-            <Route exact path="/login" children={<Login sendData = {getData} />}/>
             <Route exact path="/" children={<Home/>}/>
+            <Route exact path="/login" children={<Login sendData = {getData} />}/>            
             <Route exact path="/products" children={<Products/>}/>
             <Route exact path="/userdetails" children={<UserDetail />}/>
             
