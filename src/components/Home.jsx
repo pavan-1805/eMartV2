@@ -2,6 +2,7 @@ import { Container, Icon, makeStyles, Typography } from '@material-ui/core'
 import React from 'react'
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 const useStyles = makeStyles((theme)=>({
+    
     iconCont : {
         marginTop : 60,
         width : 500,

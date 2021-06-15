@@ -9,6 +9,7 @@ export const MartReducer = (state,action) => {
                 ProductCount : state.ProductCount + 1
             }        
         }   
+        
         case 'USER-DATA': {
             console.log(action.payload);
             return {

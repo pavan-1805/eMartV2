@@ -65,6 +65,7 @@ export default function Header() {
     localStorage.clear()  
     return <Redirect to="/" />
   }
+  
   return (    
     <Router>
       <header >

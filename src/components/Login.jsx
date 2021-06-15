@@ -46,6 +46,7 @@ function Login(props) {
             imageUrl : response.profileObj.imageUrl
 
         }
+        
         setUserData(response.profileObj)
         setFirstName(response.profileObj.givenName)
         setMiddleName(response.profileObj.familyName)

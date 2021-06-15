@@ -5,7 +5,6 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { MartContext } from '../context/MartContextProvider';
 import ProductCard from './ProductCard';
 import axios from 'axios'
-
 const useStyles = makeStyles((theme)=>({
     GridItem : {
         marginTop : 50,
