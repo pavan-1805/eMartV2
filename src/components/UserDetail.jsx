@@ -55,7 +55,6 @@ function UserDetail() {
                     image= {state.UserData[0].UserImageUrl}
                     title={UserData.givenName}
                   />
-
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
                       First Name : {state.UserData[0].UserfirstName}                      

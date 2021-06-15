@@ -6,8 +6,7 @@ const useStyles = makeStyles((theme)=>({
         marginTop : 60,
         width : 500,
         height : 120,
-        marginLeft : 50
-        
+        marginLeft : 50        
     },
     icon : {
         fontSize: '7rem',

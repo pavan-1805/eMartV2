@@ -55,7 +55,7 @@ function Login(props) {
         localStorage.setItem("userData",Data)
         setUserLoginStatus(true)    
         dispatch({type:"USER-DATA",payload : {USERDATA}})  
-        // console.log("pp",state.UserData[0]);
+        
         
     }
     props.sendData(userLoginStatus)

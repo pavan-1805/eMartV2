@@ -66,8 +66,7 @@ export default function Header() {
     return <Redirect to="/" />
   }
 
-  return (
-    
+  return (    
     <Router>
       <header >
         <AppBar

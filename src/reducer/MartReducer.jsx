@@ -19,6 +19,7 @@ export const MartReducer = (state,action) => {
                     UserMiddleName : action.payload.USERDATA.middleName,
                     UserEmail : action.payload.USERDATA.email,
                     UserImageUrl : action.payload.USERDATA.imageUrl,}
+                    
                 ]
             }
             

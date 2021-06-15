@@ -4,6 +4,7 @@ const useStyles = makeStyles((theme)=>({
     footer : {
         backgroundColor: "#D3D3D3"
     }
+    
 }))
 function Footer() {
     const classes = useStyles();

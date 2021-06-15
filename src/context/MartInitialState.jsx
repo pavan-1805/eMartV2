@@ -136,7 +136,6 @@ export const initialState = {
           UserEmail : "",
           UserImageUrl : ""
       },
-
     
     ProductCount : 0
 }
