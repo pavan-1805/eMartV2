@@ -9,7 +9,7 @@ function App() {
               <div className="main-second">
                 <Header/>                        
               </div>          
-            <Footer/>    
+            <Footer/>   
                           
           </div>
       </MartContextProvider>
