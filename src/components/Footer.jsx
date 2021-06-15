@@ -14,7 +14,6 @@ function Footer() {
                     <Typography align="center" color="">
                        Copyright &copy;{new Date().getFullYear()} e-MART INDIA, Inc. All rights reserved
                     </Typography>
-
                 </Container>
             </Box>            
         </footer>
