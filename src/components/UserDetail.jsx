@@ -33,8 +33,9 @@ function UserDetail() {
     const classes = useStyles()
     const {state,dispatch} = useContext(MartContext)
     const UserData = JSON.parse(localStorage.getItem("userData")) 
-    console.log(state); 
-    console.log("pavan",state.UserData[0].UserfirstName);
+    console.log(state);
+    console.log(state.UserData);
+  console.log(state.UserData.UserEmail);
     
     return (        
         <Container className={classes.container}>
@@ -52,18 +53,18 @@ function UserDetail() {
                   <CardMedia
                     className = {classes.media}
                     component="img"                               
-                    image= {state.UserData[0].UserImageUrl}
+                    image= {state.UserData.UserImageUrl}
                     title={UserData.givenName}
                   />
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
-                      First Name : {state.UserData[0].UserfirstName}                      
+                      First Name : {state.UserData.UserfirstName}                      
                     </Typography>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Middle Name : {state.UserData[0].UserMiddleName}
+                      Middle Name : {state.UserData.UserMiddleName}
                     </Typography>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Email : {state.UserData[0].UserEmail}
+                      Email : {state.UserData.UserEmail}
                     </Typography>
                   </CardContent>
                 </CardActionArea>

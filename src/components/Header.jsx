@@ -13,7 +13,6 @@ import UserDetail from './UserDetail';
 import { MartContext } from '../context/MartContextProvider';
 
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -41,6 +40,10 @@ button:{
 
 export default function Header() {
   const classes = useStyles();
+  const {state,dispatch} = useContext(MartContext)
+  // console.log(state);
+  // console.log(state.UserData);
+  // console.log(state.UserData.UserData);
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [userName, setUserName] = useState("")
   const [userData, setUserData] = useState(null)
@@ -62,6 +65,8 @@ export default function Header() {
     setIsLoggedIn(false)  
     //state.LoginStatus[0].isLoggedIn= false;  
     // console.log( state.LoginStatus[0].isLoggedIn);
+
+    dispatch({type:"LOGOUT"})
     localStorage.clear()  
     return <Redirect to="/" />
   }

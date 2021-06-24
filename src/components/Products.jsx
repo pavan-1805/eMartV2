@@ -36,13 +36,13 @@ function Products() {
     const {state,dispatch} = useContext(MartContext)
     const [productCount, setProductCount] = useState(0)
     const [products, setProducts] = useState([])
+    console.log(state);
     console.log(state.ProductCount);
     useEffect(() => {
         setProducts(state.products)        
     }, [])
     const getCount = (count) => {
         if(count && count>0){ 
-            console.log("papapa");
             dispatch({type:"INCREMENT", payload : {val : 1 }})
         } 
     }

@@ -29,14 +29,8 @@ const useStyles = makeStyles((theme)=>({
 }))
 function Login(props) {
     const {state,dispatch} = useContext(MartContext)
-    // console.log("state,",state.UserData[0]);
     const classes = useStyles()
-    const [userData, setUserData] = useState(null)
     const [userLoginStatus, setUserLoginStatus] = useState(false)
-    const [firstName, setFirstName] = useState("")
-    const [middleName, setMiddleName] = useState("")
-    const [email, setEmail] = useState("")
-    const [imageUrl, setImageUrl] = useState("")
     const responseGoogle = (response) => {
         const USERDATA = {
             userInfo : response.profileObj,
@@ -44,14 +38,7 @@ function Login(props) {
             middleName :response.profileObj.familyName,
             email : response.profileObj.email,
             imageUrl : response.profileObj.imageUrl
-
         }
-        
-        setUserData(response.profileObj)
-        setFirstName(response.profileObj.givenName)
-        setMiddleName(response.profileObj.familyName)
-        setEmail(response.profileObj.email)
-        setImageUrl(response.profileObj.imageUrl)
         const Data = JSON.stringify(response.profileObj)
         localStorage.setItem("userData",Data)
         setUserLoginStatus(true)    

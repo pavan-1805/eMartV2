@@ -131,7 +131,7 @@ export const initialState = {
     
     UserData : 
         {
-          UserData : null,
+          Userdata : null,
           UserfirstName : "",
           UserMiddleName : "",
           UserEmail : "",
